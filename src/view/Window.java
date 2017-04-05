@@ -74,7 +74,8 @@ public class Window extends JFrame{
 		
 		txtBinarybmp = new JTextField();
 		txtBinarybmp.setText("Binary.bmp");
-		txtBinarybmp.setBounds(161, 557, 172, 20);
+		txtBinarybmp.setFont(new Font("Tahoma", Font.PLAIN, fullScreenHeight*2/100));
+		txtBinarybmp.setBounds(fullScreenWidth*30/100 + fullScreenWidth*1/200, fullScreenHeight*10/100 + fullScreenHeight*500/10000, fullScreenWidth*25/100, fullScreenHeight*3/100);
 		getContentPane().add(txtBinarybmp);
 		txtBinarybmp.setColumns(10);
 		
