@@ -8,6 +8,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 
@@ -32,42 +33,51 @@ public class Window extends JFrame{
 	private JTextArea textArea;
 	private CounterChar cc;
 	private JLabel counter;
+	private int fullScreenHeight;
+	private int fullScreenWidth;
 	
 	public JTextArea getTextArea(){
 		return this.textArea;
 	}
 	public Window() {
+		getFullScreenDimensions();
 		setResizable(false);
 		
 		setTitle("UnMorphology");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
-		setBounds(200, 200, 450, 480);
+		setBounds();
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(65, 105, 225));
-		panel.setBounds(10, 11, 414, 97);
+		
+		//fullScreenHeight*10/100
+		panel.setBounds(fullScreenWidth*1/200, fullScreenHeight*1/200, fullScreenWidth - fullScreenWidth*5/400, fullScreenHeight*10/100);
+		
+		
 		getContentPane().add(panel);
 		
 		JLabel lblNewLabel = new JLabel("UnMorfol\u00F3gico");
 		panel.add(lblNewLabel);
 		lblNewLabel.setBackground(new Color(65, 105, 225));
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 60));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, fullScreenHeight*10/100 - fullScreenHeight*300/10000));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setVerticalAlignment(SwingConstants.CENTER);
 		
 		JLabel lblRutaDeImagen = new JLabel("Ruta de imagen");
-		lblRutaDeImagen.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRutaDeImagen.setBounds(10, 120, 118, 30);
+		lblRutaDeImagen.setHorizontalAlignment(SwingConstants.LEFT);
+		lblRutaDeImagen.setFont(new Font("Tahoma", Font.PLAIN, fullScreenHeight*5/100 - fullScreenHeight*300/10000));
+		lblRutaDeImagen.setBounds(0, fullScreenHeight*10/100 + fullScreenHeight*100/10000,fullScreenWidth*30/100, fullScreenHeight*10/100);
 		getContentPane().add(lblRutaDeImagen);
 		
 		txtBinarybmp = new JTextField();
 		txtBinarybmp.setText("Binary.bmp");
-		txtBinarybmp.setBounds(122, 125, 172, 20);
+		txtBinarybmp.setBounds(161, 557, 172, 20);
 		getContentPane().add(txtBinarybmp);
 		txtBinarybmp.setColumns(10);
 		
 		JLabel lblMensaje = new JLabel("Mensaje");
-		lblMensaje.setBounds(33, 173, 75, 14);
+		lblMensaje.setBounds(72, 605, 75, 14);
 		getContentPane().add(lblMensaje);
 		
 		JButton btnNewButton = new JButton("Examinar...");
@@ -91,7 +101,7 @@ public class Window extends JFrame{
 				
 			}
 		});
-		btnNewButton.setBounds(304, 124, 120, 23);
+		btnNewButton.setBounds(343, 556, 120, 23);
 		getContentPane().add(btnNewButton);
 		
 		JButton btnEnviar = new JButton("Enviar");
@@ -105,11 +115,11 @@ public class Window extends JFrame{
 				*/
 			}
 		});
-		btnEnviar.setBounds(59, 425, 89, 23);
+		btnEnviar.setBounds(72, 841, 89, 23);
 		getContentPane().add(btnEnviar);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(33, 198, 380, 216);
+		scrollPane.setBounds(502, 589, 380, 216);
 		getContentPane().add(scrollPane);
 		
 		textArea = new JTextArea();
@@ -122,7 +132,7 @@ public class Window extends JFrame{
 				w.setVisible(true);
 			}
 		});
-		btnLeer.setBounds(158, 425, 89, 23);
+		btnLeer.setBounds(389, 841, 89, 23);
 		getContentPane().add(btnLeer);
 		
 		JButton btnCargarImagen = new JButton("Cargar Imagen");
@@ -134,11 +144,19 @@ public class Window extends JFrame{
 				t.start();
 			}
 		});
-		btnCargarImagen.setBounds(306, 157, 118, 23);
+		btnCargarImagen.setBounds(345, 589, 118, 23);
 		getContentPane().add(btnCargarImagen);
 		
 		counter = new JLabel("");
-		counter.setBounds(257, 427, 154, 14);
+		counter.setBounds(726, 818, 154, 14);
 		getContentPane().add(counter);
+	}
+	private void setBounds() {
+		super.setBounds(0, 0, fullScreenWidth, fullScreenHeight);
+	}
+	private void getFullScreenDimensions() {
+		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		fullScreenHeight = gd.getDisplayMode().getHeight();
+		fullScreenWidth = gd.getDisplayMode().getWidth();
 	}
 }
