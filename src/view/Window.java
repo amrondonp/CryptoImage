@@ -35,6 +35,8 @@ public class Window extends JFrame{
 	private JLabel counter;
 	private int fullScreenHeight;
 	private int fullScreenWidth;
+	private int abosluteFullScreenHeight;
+	private int abosluteFullScreenWidth;
 	
 	public JTextArea getTextArea(){
 		return this.textArea;
@@ -152,11 +154,13 @@ public class Window extends JFrame{
 		getContentPane().add(counter);
 	}
 	private void setBounds() {
+		fullScreenWidth = abosluteFullScreenWidth - abosluteFullScreenWidth*25/100;
+		fullScreenHeight = abosluteFullScreenHeight - abosluteFullScreenHeight*10/100;
 		super.setBounds(0, 0, fullScreenWidth, fullScreenHeight);
 	}
 	private void getFullScreenDimensions() {
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-		fullScreenHeight = gd.getDisplayMode().getHeight();
-		fullScreenWidth = gd.getDisplayMode().getWidth();
+		abosluteFullScreenHeight = gd.getDisplayMode().getHeight();
+		abosluteFullScreenWidth = gd.getDisplayMode().getWidth();
 	}
 }
