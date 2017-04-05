@@ -68,8 +68,8 @@ public class Window extends JFrame{
 		
 		JLabel lblRutaDeImagen = new JLabel("Ruta de imagen");
 		lblRutaDeImagen.setHorizontalAlignment(SwingConstants.LEFT);
-		lblRutaDeImagen.setFont(new Font("Tahoma", Font.PLAIN, fullScreenHeight*5/100 - fullScreenHeight*300/10000));
-		lblRutaDeImagen.setBounds(0, fullScreenHeight*10/100 + fullScreenHeight*100/10000,fullScreenWidth*30/100, fullScreenHeight*10/100);
+		lblRutaDeImagen.setFont(new Font("Tahoma", Font.PLAIN, fullScreenHeight*8/100 - fullScreenHeight*300/10000));
+		lblRutaDeImagen.setBounds(fullScreenWidth*1/200, fullScreenHeight*10/100 + fullScreenHeight*100/10000,fullScreenWidth*30/100, fullScreenHeight*10/100);
 		getContentPane().add(lblRutaDeImagen);
 		
 		txtBinarybmp = new JTextField();
