@@ -73,7 +73,7 @@ public class Window extends JFrame{
 		JButton btnNewButton = new JButton("Examinar...");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFileChooser fc = new JFileChooser();
+				JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
 				fc.setFileSelectionMode( JFileChooser.FILES_ONLY );
 				fc.setFileFilter( new FileFilter() {
 					@Override
