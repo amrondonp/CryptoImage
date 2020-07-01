@@ -14,13 +14,13 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class ReadWindow extends JFrame {
+  private static final long serialVersionUID = 4632698120303311900L;
+  
   private JTextField textField;
-  private final String image;
   public String message;
   private JTextField textField_1;
 
   public ReadWindow(final String image, final JTextArea text) {
-    this.image = image;
     setBounds(650, 200, 450, 250);
     setTitle("Datos RSA");
     getContentPane().setLayout(null);

@@ -1,9 +1,9 @@
 package Model;
 
-import java.awt.Point;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 public class RSA {

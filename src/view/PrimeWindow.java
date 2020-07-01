@@ -14,13 +14,12 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class PrimeWindow extends JFrame {
+  private static final long serialVersionUID = -1218190647660859333L;
+  
   private JTextField textField;
   private JTextField textField_1;
-  private String mensaje, image;
-
+  
   public PrimeWindow(final String mensaje, final String image) {
-    this.mensaje = mensaje;
-    this.image = image;
     setTitle("Primos");
     getContentPane().setLayout(null);
     setBounds(650, 450, 450, 230);

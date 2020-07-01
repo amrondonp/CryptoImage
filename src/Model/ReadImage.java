@@ -1,15 +1,17 @@
 package Model;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class ReadImage {
   private static final int NUMBER_OF_BITS = 32;

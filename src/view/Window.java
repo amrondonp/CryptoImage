@@ -1,16 +1,11 @@
 package view;
 
-import Model.CounterChar;
-import Model.ReadAndSend;
-import Model.ReadImage;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GraphicsEnvironment;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -22,7 +17,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
 
+import Model.CounterChar;
+import Model.ReadAndSend;
+
 public class Window extends JFrame {
+  private static final long serialVersionUID = -3270990773063370883L;
   private JTextField txtBinarybmp;
   private JTextArea textArea;
   private CounterChar cc;
@@ -105,8 +104,6 @@ public class Window extends JFrame {
           String image = txtBinarybmp.getText();
           PrimeWindow pw = new PrimeWindow(mensaje, image);
           pw.setVisible(true);
-          /*
-           */
         }
       }
     );
